@@ -11,9 +11,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://ec2-35-178-211-121.eu-west-2.compute.amazonaws.com/api").then(
-      response => this.setState({ placeholder: false, content: response })
-    );
+    fetch("http://ec2-35-178-211-121.eu-west-2.compute.amazonaws.com/api")
+      .then(response => response.json())
+      .then(data => this.setState({ placeholder: false, content: data }));
   }
 
   render() {
